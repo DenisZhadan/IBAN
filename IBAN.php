@@ -216,7 +216,6 @@ class IBAN
             '21500' => 'OP Corporate Bank plc Lietuvos filialas',
             '74000' => 'Danske Bank A/S Lietuvos filialas',
 
-
             '50131' => 'Lietuvos centrinė kredito unija',
             '50109' => 'Lietuvos centrinė kredito unija',
             '50152' => 'Lietuvos centrinė kredito unija',
@@ -375,7 +374,7 @@ class IBAN
             return false;
         }
 
-        $national_bank_code = substr($international_bank_account_number, 4, $national_bank_code_length);
+        $national_bank_code = substr($international_bank_account_number, $national_bank_code_pos, $national_bank_code_length);
         if (!isset(IBAN::$bank_identifier[$country_code][$national_bank_code])) {
             return false;
         }
